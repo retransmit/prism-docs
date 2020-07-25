@@ -16,7 +16,7 @@ module.exports = {
             userservice: {
               type: "http",
               url: "http://localhost:6666/users",
-            },
+            }
           },
         },
       },
@@ -48,4 +48,39 @@ module.exports = {
               type: "http",
               url: "http://localhost:6666/users",
             }}}}}}};
+```
+
+### Rate Limiting State Management
+
+Rate Limiting requires request counts to be stored somewhere - the options available currently are in-memory and Redis.  For production, you should always be using Redis for storing state. In-memory state exists primarily for development workflows. The default is in-memory state.
+
+To store state in redis:
+
+```ts
+// host and port can be omitted if it's localhost and if it's the default port.
+module.exports = {
+  state: {
+    type: "redis",
+    host: "myredishost",
+    port: 6379
+  },
+  http: {
+    // the rest of the configuration...
+  }
+}      
+```
+
+To store the state in memory, can leave the 'state' field undefined. 
+However, if you want to be more explicit about it:
+
+```ts
+// host and port can be omitted if it's localhost and if it's the default port.
+module.exports = {
+  state: {
+    type: "memory",
+  },
+  http: {
+    // the rest of the configuration...
+  }
+}      
 ```

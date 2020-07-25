@@ -53,7 +53,7 @@ module.exports = {
 
 For production, you should always be using redis for storing state. In-memory state exists primarily for development workflows. The default is in-memory state.
 
-To store application state in redis:
+To store state in redis:
 
 ```ts
 // host and port can be omitted if it's localhost and if it's the default port.
@@ -64,12 +64,12 @@ module.exports = {
     port: 6379
   },
   http: {
-    // routes and services..
+    // the rest of the configuration...
   }
 }      
 ```
 
-To store the application state in memory, can leave the 'state' field undefined. 
+To store the state in memory, can leave the 'state' field undefined. 
 However, if you want to be more explicit about it:
 
 ```ts
@@ -79,7 +79,7 @@ module.exports = {
     type: "memory",
   },
   http: {
-    // routes and services..
+    // the rest of the configuration...
   }
 }      
 ```
