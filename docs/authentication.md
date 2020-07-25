@@ -1,7 +1,5 @@
 ---
-id: authentication
 title: Authentication
-sidebar_label: Authentication
 ---
 
 Currently Prism only supports JWT based authentication. It internally uses the [https://github.com/auth0/node-jsonwebtoken](jsonwebtoken) library. So all the options supported by jsonwebtoken can be used here.

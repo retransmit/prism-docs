@@ -1,5 +1,4 @@
 ---
-id: https-and-cors
 title: HTTPS and CORS
 ---
 

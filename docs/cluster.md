@@ -1,5 +1,4 @@
 ---
-id: cluster
 title: Cluster
 ---
 

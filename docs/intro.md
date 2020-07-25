@@ -1,7 +1,5 @@
 ---
-id: intro
 title: Introduction
-sidebar_label: Introduction
 ---
 
 Prism is an API Gateway....

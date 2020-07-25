@@ -1,7 +1,5 @@
 ---
-id: caching
 title: Caching
-sidebar_label: Caching
 ---
 
 Response Caching can be enabled for all HTTP routes (with explicit opt-out) or for specific routes.

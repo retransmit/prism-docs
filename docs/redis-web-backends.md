@@ -1,7 +1,5 @@
 ---
-id: redis-web-backends
 title: Redis Web Backends
-sidebar_label: Redis Web Backends
 ---
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).

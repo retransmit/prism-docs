@@ -1,7 +1,5 @@
 ---
-id: response-aggregation
 title: Response Aggregation
-sidebar_label: Response Aggregation
 ---
 
 Let's borrow the configuration from the previous article.
