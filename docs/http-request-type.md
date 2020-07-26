@@ -1,5 +1,5 @@
 ---
-title: Http Request Type
+title: Http Request
 ---
 
 ```ts
