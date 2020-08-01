@@ -30,7 +30,7 @@ const config: UserAppConfig = {
 };
 ```
 
-Let's go step-by-step. When a client initiates a web socket connection, Prism will send a message (serialized JSON object) to all participating services (defined under the same route) on their requestChannels (as shown in the configuration above). The serialized message looks like this:
+Let's go step-by-step. When a client initiates a web socket connection, Prism will send a connect request in serialized JSON form to all participating services (defined under the same route) on their requestChannels . The serialized message looks like this:
 
 ```ts
   id: string;
@@ -43,10 +43,13 @@ Let's go step-by-step. When a client initiates a web socket connection, Prism wi
   responseChannel: string;
 ```
 
+In the example above, the id field will uniquely identify a connection, and can be used for sending messages to the client. The responseChannel defined in the message is the channel on to which services should post responses; it is IMPORTANT to note that this is NOT the same as the responseChannel defined in ..... TODO
+
+
 
 Whenever a message is received from the client, it is serialized and send sent to the channels mentioned in 'requestChannel'. Since multiple services can subscribe to the same channel, it's probably best for all services on a route ("/quotes" in the example above) to use the same channel to receive messages.
 
-A serialized incoming message looks like this. The id field will uniquely identify a connection, and can be used for sending messages to the client.
+A serialized incoming message looks like this. 
 
 ```ts
 export type RedisWebSocketConnectRequest = {

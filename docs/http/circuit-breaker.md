@@ -59,8 +59,8 @@ To store state in redis:
 ```ts
 // host and port can be omitted if it's localhost and if it's the default port.
 module.exports = {
-  state: {
-    type: "redis",
+  state: "redis",
+  redis: {
     host: "myredishost",
     port: 6379
   },
@@ -76,11 +76,9 @@ However, if you want to be more explicit about it:
 ```ts
 // host and port can be omitted if it's localhost and if it's the default port.
 module.exports = {
-  state: {
-    type: "memory",
-  },
+  state: "memory",
   http: {
     // the rest of the configuration...
-  }
-}      
+  },
+};  
 ```
