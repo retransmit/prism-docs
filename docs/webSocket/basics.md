@@ -70,4 +70,4 @@ export type RedisWebSocketMessageRequest = {
 };
 ```
 
-So that's it. Prism offers a simple way for multiple backend services to talk to a client using a single connection.
+So that's it. Prism offers a simple way for multiple backend services to talk to a client using a single connection. Read on for more details like authentication, dropping connections etc.
