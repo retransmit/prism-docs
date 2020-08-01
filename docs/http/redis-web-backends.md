@@ -24,10 +24,7 @@ module.exports = {
           },
         },
       },
-    },
-    redis: {
-      responseChannel: "output",
-    },
+    }
   },
 };
 ```
@@ -129,10 +126,7 @@ module.exports = {
           },
         },
       },
-    },
-    redis: {
-      responseChannel: "output",
-    },
+    }
   },
 };
 ```
