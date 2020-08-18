@@ -29,31 +29,28 @@ export type RedisWebSocketConnectRequest = {
   id: string;
   type: "connect";
   route: string;
-  path: string;
   remoteAddress: string | undefined;
   remotePort: number | undefined;
-  request: string;
   responseChannel: string;
 };
 ```
 
-In the example above, the id field will uniquely identify a connection, and can be used for sending messages to the client. The responseChannel defined in the message is the channel on to which services should post responses. responseChannel will remain the same for a websocket connection; but may vary between connections.
+In the example above, the id field will uniquely identify a connection, and must be used for sending messages to the client. The responseChannel defined in the message is the channel on to which services should post responses. responseChannel will remain the same for a websocket connection; but could vary between connections.
 
-Once a connect message is received (in the format above), services may start to send replies back to the client. Responses should be posted to the responseChannel (received in the 'connect' message earlier),
+Once a connect message is received (in the format above), services can start sending responses to the client. Responses should be posted to the responseChannel (received in the 'connect' message earlier),
 
-A message from a service should be in the following format, and the response property contains the string that will sent back to the client:
+A message from a service should be in the following format, in which the response property contains the string message that will sent back to the client:
 
 ```ts
 export type WebSocketResponse = {
   id: string;
   type: "message";
-  route: string;
   service: string;
-  response: string;
+  message: string;
 };
 ```
 
-WebSocket connections are bi-directional; clients may also send messages to services. These messages are serialized and sent to all participating services defined for the WebSocket route. Note that betweem multiple messages from the client, the id and responseChannel will remain the same.
+WebSocket connections are bi-directional; clients can send messages to services as well. These messages are serialized and sent to all participating services defined for the WebSocket route. Between multiple messages from the client, the id and responseChannel will remain the same.
 
 The message from a client looks like this:
 
@@ -62,12 +59,13 @@ export type RedisWebSocketMessageRequest = {
   id: string;
   type: "message";
   route: string;
-  path: string;
   remoteAddress: string | undefined;
   remotePort: number | undefined;
-  request: string;
+  message: string;
   responseChannel: string;
 };
 ```
+
+As before, a service (any service) may choose to respond back to the client using WebSocketResponse as discussed previously.
 
 So that's it. Prism offers a simple way for multiple backend services to talk to a client using a single connection. Read on for more details like authentication, dropping connections etc.
